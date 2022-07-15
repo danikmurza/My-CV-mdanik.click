@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter @Setter @NoArgsConstructor
 @Table(name = "users")
-public class user {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +23,7 @@ public class user {
     @Column(name = "password")
     private String password;
 
-    public user(Long id, String email, String password) {
+    public User(Long id, String email, String password) {
         this.id = id;
         this.email = email;
         this.password = password;
