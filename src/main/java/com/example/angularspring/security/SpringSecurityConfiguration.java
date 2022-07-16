@@ -6,17 +6,21 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-@Configuration @EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception{
-        http.csrf().disable()
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
                 .cors().disable()
                 .addFilterBefore(new UsernamePasswordFilter(), UsernamePasswordFilter.class)
-                .httpBasic().disable().logout().disable();
+                .httpBasic().disable()
+                .logout().disable();
     }
+
 
 
 

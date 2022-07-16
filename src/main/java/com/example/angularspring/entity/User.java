@@ -4,12 +4,17 @@ package com.example.angularspring.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Date;
 
 @Entity
-@Getter @Setter @NoArgsConstructor
 @Table(name = "users")
+@NoArgsConstructor
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -17,15 +22,61 @@ public class User {
     @Column(nullable = false)
     private Long id;
 
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
     @Column(name = "email")
     private String email;
 
     @Column(name = "password")
     private String password;
 
-    public User(Long id, String email, String password) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-    }
+    @CreatedDate
+    @Column(name = "last_visit")
+    private Date created;
+
+    @Column(name = "url_avatar")
+    private String urlAvatar;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
+
+
+//
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "user_roles",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id"))
+//    private Set<Role> roles = new HashSet<>();
+
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "roles")
+//    private Roles roles;
+
+
+//    @OneToMany(targetEntity = Role.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "user_id", referencedColumnName = "_id")
+//    private List<Role> roles = new ArrayList<>();
+
+//    @OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id", referencedColumnName = "_id")
+//    private List<Address> address = new ArrayList<>();
+//
+//    @OneToMany(targetEntity = Tickets.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id", referencedColumnName = "_id")
+//    private List<Tickets> tickets = new ArrayList<>();
+//
+//    @OneToMany(targetEntity = Orders.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id", referencedColumnName = "_id")
+//    private List<Orders> orders = new ArrayList<>();
 }
