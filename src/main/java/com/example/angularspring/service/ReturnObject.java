@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ReturnObject implements ObjectRepository {
-    @Autowired
-    private UserService userService;
+
+    private final UserService userService;
+
+    public ReturnObject(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public Object token(Long userId) {
