@@ -2,10 +2,7 @@ package com.example.angularspring.controller;
 
 import com.example.angularspring.entity.User;
 import com.example.angularspring.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -31,7 +28,16 @@ public class UserController {
 
     @GetMapping(path ="/users")
     public @ResponseBody
-    List<User> getAll(){
+    Iterable<User> getAll(){
         return userService.findAll();
     }
+
+    @PostMapping(path = "/registration")
+    public @ResponseBody
+    String postController(@RequestBody User body) {
+        System.out.println(body);
+        userService.save(body);
+        return "saved";
+    }
+
 }

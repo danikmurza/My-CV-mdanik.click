@@ -16,12 +16,16 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> findAll(){
+    public Iterable<User> findAll(){
         return userRepository.findAll();
     }
 
     public Optional<User> findBiId(Long id){
         return userRepository.findById(id);
+    }
+
+    public void save(User user){
+        userRepository.save(user);
     }
 
 }

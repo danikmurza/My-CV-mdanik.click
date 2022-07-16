@@ -22,11 +22,11 @@ public class User {
     @Column(nullable = false)
     private Long id;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
+//    @Column(name = "first_name", nullable = true)
+//    private String firstName;
+//
+//    @Column(name = "last_name", nullable = true)
+//    private String lastName;
 
     @Column(name = "email")
     private String email;
@@ -34,12 +34,12 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @CreatedDate
-    @Column(name = "last_visit")
-    private Date created;
-
-    @Column(name = "url_avatar")
-    private String urlAvatar;
+//    @CreatedDate
+//    @Column(name = "last_visit", nullable = true)
+//    private Date created;
+//
+//    @Column(name = "url_avatar", nullable = true)
+//    private String urlAvatar;
 
 
     @ManyToMany
