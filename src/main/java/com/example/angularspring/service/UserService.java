@@ -4,7 +4,7 @@ import com.example.angularspring.entity.User;
 import com.example.angularspring.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 import java.util.Optional;
 
 @Service
@@ -24,8 +24,18 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public void save(User user){
-        userRepository.save(user);
+    public User save(User user){
+       User users = userRepository.save(user);
+       return users;
     }
 
+    public Object userFindByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
+    public Object updateUser(User body) {
+        Object email = userRepository.findByEmail(body.getEmail());
+        System.out.println(email);
+        return "Updated";
+    }
 }
