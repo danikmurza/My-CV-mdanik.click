@@ -20,7 +20,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> findBiId(Long id){
+    public Optional<User> findById(Long id){
         return userRepository.findById(id);
     }
 

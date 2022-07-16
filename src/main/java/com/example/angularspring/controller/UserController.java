@@ -16,17 +16,6 @@ public class UserController {
     }
 
     @GetMapping(path ="/")
-    public String welcome(){
-        return "Hello word";
-    }
-
-    @PostMapping(path ="/login")
-    public String login(){
-        return "Login";
-    }
-
-
-    @GetMapping(path ="/users")
     public @ResponseBody
     Iterable<User> getAll(){
         return userService.findAll();
@@ -34,7 +23,7 @@ public class UserController {
 
     @PostMapping(path = "/registration")
     public @ResponseBody
-    String postController(@RequestBody User body) {
+    Object postController(@RequestBody User body) {
         System.out.println(body);
         userService.save(body);
         return "saved";
