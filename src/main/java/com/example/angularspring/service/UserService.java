@@ -21,7 +21,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
 
     private final RoleRepository roleRepository;
 
