@@ -24,8 +24,8 @@ public class UserController {
 
     @PostMapping(path = "/registration")
     public @ResponseBody
-    Object registration(@RequestBody User body) {
-       return userService.save(body);
+    Object registration(@RequestBody User body) throws Exception {
+       return userService.registerNewUser(body);
     }
 
     @PostMapping(path = "/user")
@@ -37,7 +37,7 @@ public class UserController {
     @PostMapping(path = "/login")
     public @ResponseBody
     Object login(@RequestBody User body) {
-       return userService.userFindByEmail(body.getEmail());
+       return userService.login(body);
     }
 
     @PostMapping(path = "/update")
