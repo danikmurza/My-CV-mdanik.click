@@ -61,15 +61,16 @@ public class UserService {
             return "have";
         }
         String passwd = encoder.encode(dto.getPassword());
-//        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
+        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
         User user = new User();
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setEmail(dto.getEmail());
-//        System.out.print(Collections.singletonList(adminRole));
+        System.out.print(Arrays.asList(adminRole));
         user.setPassword(passwd);
+        user.setEnabled(true);
         user.setUrlAvatar(dto.getUrlAvatar());
-//        user.setRoles(Arrays.asList(adminRole));
+//        user.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
         User r = userRepository.save(user);
         return r;
     }
