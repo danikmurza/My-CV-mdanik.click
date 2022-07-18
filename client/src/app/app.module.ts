@@ -5,27 +5,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { SetCookieExampleComponent } from './set-cookie-example/set-cookie-example.component';
-import { GetCookieExampleComponent } from './get-cookie-example/get-cookie-example.component';
 import {RouterModule} from "@angular/router";
 import {CookieService} from "./cookie.service";
+import { RegistrationComponent } from './registration/registration.component';
+import {ConfigService} from "./config.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SetCookieExampleComponent,
-    GetCookieExampleComponent
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: SetCookieExampleComponent},
-      {path: 'get-cookie', component: GetCookieExampleComponent}
+      {path: '', component: LoginComponent},
+      // {path: 'get-cookie', component: GetCookieExampleComponent}
     ])
   ],
-  providers: [CookieService],
+  providers: [CookieService, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
