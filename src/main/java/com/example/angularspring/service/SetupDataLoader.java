@@ -3,7 +3,7 @@
 //
 //import com.example.angularspring.entity.Privilege;
 //import com.example.angularspring.entity.Role;
-//import com.example.angularspring.entity.User;
+//import com.example.angularspring.entity.Model;
 //import com.example.angularspring.repository.PrivilegeRepository;
 //import com.example.angularspring.repository.RoleRepository;
 //import com.example.angularspring.repository.UserRepository;
@@ -52,7 +52,7 @@
 //        createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
 //
 //        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
-//        User user = new User();
+//        Model user = new Model();
 //        user.setFirstName("Test");
 //        user.setLastName("Test");
 ////        user.setPassword(passwordEncoder.encode("test"));

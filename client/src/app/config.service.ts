@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {User} from "./interface/User";
+import {User} from "./model/Model";
+import {Observable, Subscription} from "rxjs";
 
 
 @Injectable({
@@ -19,11 +20,11 @@ export class ConfigService {
     })
   };
 
-  getUser() {
+  getUser(): Observable<User> {
     return this.http.get<User>(this.configUrl);
   }
 
-  getLogin(path: string, body: User) {
+  getLogin(path: string, body: User): Observable<User> {
     return this.http.post<User>(this.configUrl+ path, body, this.httpOptions);
   }
 
