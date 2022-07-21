@@ -4,6 +4,7 @@ package com.example.angularspring.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.engine.internal.Cascade;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -47,7 +48,7 @@ public class User {
     private String urlAvatar;
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(
