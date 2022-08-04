@@ -10,20 +10,24 @@ import {CookieService} from "./cookie.service";
 import { RegistrationComponent } from './registration/registration.component';
 import {ConfigService} from "./config.service";
 import {HttpClientModule} from "@angular/common/http";
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: LoginComponent},
+      {path: 'main', component: MainComponent},
+      {path: 'login', component: LoginComponent},
       // {path: 'get-cookie', component: GetCookieExampleComponent}
+      {path: 'registration', component: RegistrationComponent},
     ])
   ],
   providers: [CookieService, ConfigService],

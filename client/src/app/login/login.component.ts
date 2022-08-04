@@ -9,8 +9,10 @@ import {ConfigService} from "../config.service";
 })
 export class LoginComponent implements OnInit {
 
-  date: string ="";
-  secondDate: string="";
+  email: string ="";
+  password: string="";
+  error: any
+  message: any
 
 
   constructor(private Cookie: CookieService, private http: ConfigService) { }
@@ -24,10 +26,23 @@ export class LoginComponent implements OnInit {
 console.log(i)
   }
 
+
+
+  getEmail(e: any) {
+    e.preventDefault()
+  }
+
+  getPassword(e: any) {
+    e.preventDefault()
+  }
+
   login(e: MouseEvent){
     e.preventDefault()
-    this.date = new Date().getDate().toString()
-    console.log(this.date)
+    this.http
+      .postLogin('login', {email: this.email, password: this.password})
+      .subscribe(data => this.message = data, error => this.error = error)
+
   }
+
 
 }

@@ -28,4 +28,12 @@ export class ConfigService {
     return this.http.post<User>(this.configUrl+ path, body, this.httpOptions);
   }
 
+  postLogin(path:string, data: User): Observable<any> {
+    console.log(path)
+    console.log(data)
+    const headers = new HttpHeaders({'content-type': 'application/json'})
+    const body = JSON.stringify(data)
+    return this.http.post<any>(this.configUrl + path, body, { headers })
+  }
+
 }

@@ -2,6 +2,8 @@ package com.example.angularspring.controller;
 
 import com.example.angularspring.entity.User;
 import com.example.angularspring.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +26,8 @@ public class UserController {
 
     @PostMapping(path = "/registration")
     public @ResponseBody
-    Object registration(@RequestBody User body) throws Exception {
-       return userService.registerNewUser(body);
+    ResponseEntity<Object> registration(@RequestBody User body) throws Exception {
+       return new ResponseEntity<>( userService.registerNewUser(body), HttpStatus.CREATED);
     }
 
     @PostMapping(path = "/user")

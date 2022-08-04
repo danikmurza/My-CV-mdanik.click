@@ -1,1 +1,22 @@
-<p>registration works!</p>
+<form class="needs-validation" novalidate>
+  <div class="row gx-4 gy-3">
+    <div class="col-sm-6">
+      <label class="form-label" for="reg-email">E-mail Address</label>
+      <input class="form-control"
+             type="email" required id="reg-email" (blur)="emailChange($event)">
+      <div class="invalid-feedback">Please enter valid email address!</div>
+    </div>
+    <div class="col-sm-6">
+      <label class="form-label" for="reg-password">Password</label>
+      <input class="form-control"
+             type="password" required id="reg-password" (blur)="passwordChange($event)">
+      <div class="invalid-feedback">Please enter password!</div>
+    </div>
+    <div class="col-12 text-end">
+      <button class="btn btn-primary"
+              type="submit" (click)="registration($event)">
+        <i class="ci-user me-2 ms-n1"></i>Sign Up
+      </button>
+    </div>
+  </div>
+</form>
