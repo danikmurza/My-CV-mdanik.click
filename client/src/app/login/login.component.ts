@@ -9,7 +9,13 @@ import {ConfigService} from "../config.service";
 })
 export class LoginComponent implements OnInit {
 
+  date: string ="";
+  secondDate: string="";
+
+
   constructor(private Cookie: CookieService, private http: ConfigService) { }
+
+
 
   ngOnInit(): void {
     this.Cookie.setCookie({name: "access_token", value: "sadfdadasdas"});
@@ -18,8 +24,10 @@ export class LoginComponent implements OnInit {
 console.log(i)
   }
 
-  login(){
-    // this.http.getLogin('login', {email: 'mdanik@bk.ru', password: 'Danik1234'})
+  login(e: MouseEvent){
+    e.preventDefault()
+    this.date = new Date().getDate().toString()
+    console.log(this.date)
   }
 
 }
