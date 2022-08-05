@@ -18,18 +18,13 @@ public class Json implements ObjectRepository {
 
 
     @Override
-    public Object message(String message, int code) {
+    public Object Error(String message) {
         return null;
     }
 
-    @Override
-    public Object Error(String message, int code) {
-        return null;
-    }
-
-    public Object message(String already_have) {
+    public Object m(String message) {
         JSONObject obj = new JSONObject();
-        obj.put("message", already_have);
+        obj.put("message", message);
         return obj.toString();
     }
 }

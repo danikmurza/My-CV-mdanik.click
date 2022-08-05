@@ -7,8 +7,8 @@ public interface ObjectRepository {
 
     Object token(String token);
 
-    Object message(String message, int code);
+    Object m(String message);
 
-    Object Error(String message, int code);
+    Object Error(String message);
 
 }

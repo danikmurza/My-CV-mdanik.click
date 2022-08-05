@@ -55,7 +55,7 @@ public class UserService {
         return "Updated";
     }
 
-    public Object registerNewUser(User dto) throws Exception {
+    public User registerNewUser(User dto) {
 
         String passwd = encoder.encode(dto.getPassword());
 //        Role adminRole = roleRepository.findByName("ROLE_ADMIN");

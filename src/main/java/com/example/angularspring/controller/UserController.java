@@ -17,58 +17,59 @@ public class UserController {
     private final UserService userService;
     private final JwtUtils jwtUtils;
 
-    private final Json jj;
+    private final Json j;
 
     @Autowired
-    public UserController(UserService userService, JwtUtils jwtUtils, Json jj) {
+    public UserController(UserService userService, JwtUtils jwtUtils, Json j) {
         this.userService = userService;
         this.jwtUtils = jwtUtils;
-        this.jj = jj;
+        this.j = j;
     }
 
-    @GetMapping(path ="/")
-    public @ResponseBody
-    Iterable<User> getAll(){
+    @GetMapping(path = "/")
+    public @ResponseBody Iterable<User> getAll() {
         return userService.findAll();
     }
 
     @PostMapping(path = "/registration")
-    public @ResponseBody
-    ResponseEntity<Object> registration(@RequestBody User body) throws Exception {
-        User users = userService.userFindByEmail(body.getEmail());
-        if(users != null){
-            return new ResponseEntity<>(jj.message("Already have"), HttpStatus.BAD_REQUEST);
-        }
-
-       return new ResponseEntity<>( userService.registerNewUser(body), HttpStatus.CREATED);
-    }
-
-    @PostMapping(path = "/user")
-    public @ResponseBody
-    Object user(@RequestBody User body) {
-        return userService.findById(body.getId());
-    }
-
-    @PostMapping(path = "/login")
-    public @ResponseBody
-    ResponseEntity<Object> login(@RequestBody User body) throws Exception {
+    public @ResponseBody ResponseEntity<Object> registration(@RequestBody User body) throws Exception {
         try {
-            User user = userService.userFindByEmail(body.getEmail());
-            if(user==null){
-               return new ResponseEntity<>("User not exist", HttpStatus.NOT_FOUND);
-            }if(!userService.checkPassword(body.getPassword(), user.getPassword())){
-                return new ResponseEntity<Object>("Password dont match", HttpStatus.BAD_REQUEST);
-            }else {
-                return new ResponseEntity<>(jj.token(jwtUtils.generateJwtToken(user.getEmail(), user.getId())), HttpStatus.OK);
+            User users = userService.userFindByEmail(body.getEmail());
+            if (users != null) {
+                return new ResponseEntity<>(j.m("User already have"), HttpStatus.BAD_REQUEST);
+            } else {
+                User user = this.userService.registerNewUser(body);
+                return new ResponseEntity<>(j.token(jwtUtils.generateJwtToken(user.getEmail(), user.getId())), HttpStatus.CREATED);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
+    @PostMapping(path = "/user")
+    public @ResponseBody Object user(@RequestBody User body) {
+        return userService.findById(body.getId());
+    }
+
+    @PostMapping(path = "/login")
+    public @ResponseBody ResponseEntity<Object> login(@RequestBody User body) throws Exception {
+        try {
+            User user = userService.userFindByEmail(body.getEmail());
+            if (user == null) {
+                return new ResponseEntity<>(j.m("User not exist"), HttpStatus.NOT_FOUND);
+            }
+            if (!userService.checkPassword(body.getPassword(), user.getPassword())) {
+                return new ResponseEntity<>(j.m("Password dont match"), HttpStatus.BAD_REQUEST);
+            } else {
+                return new ResponseEntity<>(j.token(jwtUtils.generateJwtToken(user.getEmail(), user.getId())), HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(j.m(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @PostMapping(path = "/update")
-    public @ResponseBody
-    Object update(@RequestBody User body) {
+    public @ResponseBody Object update(@RequestBody User body) {
         return userService.updateUser(body);
     }
 
