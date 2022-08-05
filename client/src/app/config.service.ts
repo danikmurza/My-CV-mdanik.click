@@ -34,6 +34,7 @@ export class ConfigService {
     const headers = new HttpHeaders({'content-type': 'application/json'})
     const body = JSON.stringify(data)
     return this.http.post<any>(this.configUrl + path, body, { headers })
+
   }
 
 }
