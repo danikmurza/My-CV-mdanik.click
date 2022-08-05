@@ -24,7 +24,7 @@ import { MainComponent } from './main/main.component';
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'main', component: MainComponent},
+      {path: '', component: MainComponent},
       {path: 'login', component: LoginComponent},
       // {path: 'get-cookie', component: GetCookieExampleComponent}
       {path: 'registration', component: RegistrationComponent},
