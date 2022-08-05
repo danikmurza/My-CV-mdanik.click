@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CookieService} from "../cookie.service";
 import {ConfigService} from "../config.service";
+// import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-login',
@@ -30,17 +31,22 @@ console.log(i)
 
   getEmail(e: any) {
     e.preventDefault()
+    this.email = e.target.value;
   }
 
   getPassword(e: any) {
     e.preventDefault()
+    this.password = e.target.value
   }
 
-  login(e: MouseEvent){
+   login(e: MouseEvent){
     e.preventDefault()
     this.http
       .postLogin('login', {email: this.email, password: this.password})
-      .subscribe(data => this.message = data, error => this.error = error)
+      .subscribe(data => this.message = data, error1 => this.error = error1.error)
+
+    console.log(this.message)
+     console.log(this.error)
 
   }
 

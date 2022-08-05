@@ -75,16 +75,8 @@ public class UserService {
         return r;
     }
 
-    public Object login(User dto){
-        User users = userFindByEmail(dto.getEmail());
-        if(users == null){
-            return "Dont Have";
-        }
-        boolean match = encoder.matches(dto.getPassword(), users.getPassword());
-        System.out.println(match);
-        if(!match){
-            return "Password No MATCh";
-        }
-        return users;
+    public boolean checkPassword(String password, String enPasswd){
+        return encoder.matches(password, enPasswd);
     }
+
 }
