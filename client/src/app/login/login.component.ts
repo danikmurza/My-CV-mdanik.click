@@ -45,7 +45,7 @@ console.log(i)
       .postLogin('login', {email: this.email, password: this.password})
       .subscribe(data => this.message = data, error1 => this.error = error1.error)
 
-    console.log(this.message)
+    console.log(this.message.token)
      console.log(this.error)
 
   }

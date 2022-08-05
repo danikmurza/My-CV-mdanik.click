@@ -42,7 +42,7 @@ public class UserController {
                 return new ResponseEntity<>(j.token(jwtUtils.generateJwtToken(user.getEmail(), user.getId())), HttpStatus.CREATED);
             }
         } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(j.m(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
 
