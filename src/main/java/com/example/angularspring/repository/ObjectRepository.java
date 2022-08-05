@@ -5,9 +5,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ObjectRepository {
 
-    Object token(Long userId);
-
-    Object token(int userId);
+    Object token(String token);
 
     Object message(String message, int code);
 

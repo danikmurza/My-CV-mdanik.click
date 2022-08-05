@@ -56,10 +56,7 @@ public class UserService {
     }
 
     public Object registerNewUser(User dto) throws Exception {
-        User users = userFindByEmail(dto.getEmail());
-        if(users != null){
-            return "have";
-        }
+
         String passwd = encoder.encode(dto.getPassword());
 //        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
         User user = new User();
