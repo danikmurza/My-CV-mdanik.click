@@ -10,18 +10,22 @@ import {CookieService} from "./cookie.service";
 import { RegistrationComponent } from './registration/registration.component';
 import {ConfigService} from "./config.service";
 import {HttpClientModule} from "@angular/common/http";
-import { MainComponent } from './main/main.component';
+// import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
+import { AccountComponent } from './account/account.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    MainComponent,
+    // MainComponent,
     FooterComponent,
-    NavComponent
+    NavComponent,
+    AccountComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

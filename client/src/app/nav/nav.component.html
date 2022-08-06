@@ -1,40 +1,55 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbar">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <button type="button" class="btn btn-outline-primary login" routerLink="/login">Login</button>
-      </form>
-    </div>
-  </div>
-</nav>
+<!--<nav class="nav">-->
+<!--  <a class="home-button" routerLink="/" routerLinkActive="active">-->
+<!--    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"-->
+<!--         fill="currentColor" class="bi bi-house-fill buttons" viewBox="0 0 16 16">-->
+<!--      <path fill-rule="evenodd"-->
+<!--            d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>-->
+<!--      <path fill-rule="evenodd"-->
+<!--            d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>-->
+<!--    </svg>-->
+<!--    <h5 class="buttons">Home</h5>-->
+<!--  </a>-->
+<!--  <a class="account" routerLink="login" routerLinkActive="active">-->
+<!--    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"-->
+<!--         class="bi bi-person-fill buttons" viewBox="0 0 16 16">-->
+<!--      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>-->
+<!--    </svg>-->
+<!--    <h5 class="buttons">-->
+<!--      Account-->
+<!--    </h5>-->
+<!--  </a>-->
+<!--</nav>-->
+<!--<div style="height: 50px"></div>-->
+<style>
+  html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+  .w3-theme-d2, .w3-theme, .w3-theme-d1, .w3-theme-d3, .w3-theme-l1 {
+    background-color: #199de5 !important;
+  }
+  .w3-theme-d4, .w3-theme-d5, .w3-theme-l1.w3-theme-d1 {
+    background-color: #076490 !important;
+  }
+  .w3-theme-d4, .w3-theme-d5 {
+    background-color: #076490 !important;
+  }
 
+</style>
+
+<div class="w3-top">
+  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+    <a routerLink="/" routerLinkActive="active"
+       class="w3-bar-item w3-button w3-padding-large w3-theme-d4">
+      <i class="fa fa-home w3-margin-right"></i>
+      Home
+    </a>
+<!--    <a routerLink="/login" routerLinkActive="active"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News">-->
+<!--      <i class="fa fa-globe"></i>-->
+<!--    </a>-->
+    <a routerLink="login" routerLinkActive="active"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings">
+      <i class="fa fa-user"></i>
+    </a>
+<!--    <a routerLink="/login" routerLinkActive="active"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages">-->
+<!--      <i class="fa fa-envelope"></i>-->
+<!--    </a>-->
+  </div>
+</div>
+<div style="height: 40px"></div>
