@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "build/static",
+            "outputPath": "../build/static",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,8 +27,7 @@
               "src/styles.css",
               "src/app/main/css/aos.css",
               "src/app/main/css/bootstrap.min.css",
-              "src/app/main/css/main.css",
-              "src/app/main/styles/main.scss"
+              "src/app/main/css/main.css"
 
             ],
             "scripts": [
@@ -45,13 +44,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [
@@ -107,8 +106,7 @@
               "src/styles.css",
               "src/app/main/css/aos.css",
               "src/app/main/css/bootstrap.min.css",
-              "src/app/main/css/main.css",
-              "src/app/main/styles/main.scss"
+              "src/app/main/css/main.css"
             ],
             "scripts": [
               "src/app/main/scripts/main.js",
