@@ -1,13 +1,13 @@
-package com.example.angularspring;
+package com.example.portfolio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AngularSpringApplication {
+public class Portfolio {
 
     public static void main(String[] args) {
-        SpringApplication.run(AngularSpringApplication.class, args);
+        SpringApplication.run(Portfolio.class, args);
     }
 
 }

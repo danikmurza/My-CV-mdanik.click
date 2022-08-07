@@ -1,4 +1,4 @@
-package com.example.angularspring.repository;
+package com.example.portfolio.repository;
 
 import org.springframework.stereotype.Repository;
 

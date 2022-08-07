@@ -1,9 +1,7 @@
-package com.example.angularspring.repository;
+package com.example.portfolio.repository;
 
-import com.example.angularspring.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.portfolio.entity.User;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 @Repository

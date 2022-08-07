@@ -1,6 +1,6 @@
-package com.example.angularspring.service;
+package com.example.portfolio.service;
 
-import com.example.angularspring.repository.ObjectRepository;
+import com.example.portfolio.repository.ObjectRepository;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 

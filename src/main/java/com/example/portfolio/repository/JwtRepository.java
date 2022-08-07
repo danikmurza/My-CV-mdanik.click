@@ -1,6 +1,6 @@
-package com.example.angularspring.repository;
+package com.example.portfolio.repository;
 
-import com.example.angularspring.entity.User;
+import com.example.portfolio.entity.User;
 import org.springframework.stereotype.Repository;
 
 @Repository

@@ -1,4 +1,4 @@
-package com.example.angularspring.entity;
+package com.example.portfolio.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

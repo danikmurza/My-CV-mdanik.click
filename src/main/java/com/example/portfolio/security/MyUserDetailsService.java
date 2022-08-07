@@ -1,10 +1,10 @@
-package com.example.angularspring.security;
+package com.example.portfolio.security;
 
-import com.example.angularspring.entity.Privilege;
-import com.example.angularspring.entity.Role;
-import com.example.angularspring.entity.User;
-import com.example.angularspring.repository.RoleRepository;
-import com.example.angularspring.repository.UserRepository;
+import com.example.portfolio.entity.Privilege;
+import com.example.portfolio.entity.Role;
+import com.example.portfolio.entity.User;
+import com.example.portfolio.repository.RoleRepository;
+import com.example.portfolio.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

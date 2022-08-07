@@ -1,19 +1,12 @@
-package com.example.angularspring.service;
+package com.example.portfolio.service;
 
-import com.example.angularspring.entity.Role;
-import com.example.angularspring.entity.User;
-import com.example.angularspring.repository.RoleRepository;
-import com.example.angularspring.repository.UserRepository;
-import org.springframework.context.annotation.Bean;
+import com.example.portfolio.entity.User;
+import com.example.portfolio.repository.RoleRepository;
+import com.example.portfolio.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.encrypt.Encryptors;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Optional;
 
 @Service

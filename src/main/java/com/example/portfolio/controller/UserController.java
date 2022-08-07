@@ -1,9 +1,9 @@
-package com.example.angularspring.controller;
+package com.example.portfolio.controller;
 
-import com.example.angularspring.entity.User;
-import com.example.angularspring.security.JwtUtils;
-import com.example.angularspring.service.Json;
-import com.example.angularspring.service.UserService;
+import com.example.portfolio.entity.User;
+import com.example.portfolio.security.JwtUtils;
+import com.example.portfolio.service.Json;
+import com.example.portfolio.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
