@@ -25,7 +25,14 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/scripts.js",
+              "src/assets/js/aos.js",
+              "src/assets/js/now-ui-kit.js",
+              "src/assets/js/core/bootstrap.min.js",
+              "src/assets/js/core/popper.min.js",
+              "src/assets/js/core/jquery.3.2.1.min.js"
+            ]
           },
           "configurations": {
             "production": {
