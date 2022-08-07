@@ -107,6 +107,7 @@
               "src/app/main/css/aos.css",
               "src/app/main/css/bootstrap.min.css",
               "src/app/main/css/main.css"
+
             ],
             "scripts": [
               "src/app/main/scripts/main.js",
