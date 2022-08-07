@@ -20,18 +20,24 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/app/main"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/main/css/aos.css",
+              "src/app/main/css/bootstrap.min.css",
+              "src/app/main/css/main.css",
+              "src/app/main/styles/main.scss"
+
             ],
             "scripts": [
-              "src/assets/scripts.js",
-              "src/assets/js/aos.js",
-              "src/assets/js/now-ui-kit.js",
-              "src/assets/js/core/bootstrap.min.js",
-              "src/assets/js/core/popper.min.js",
-              "src/assets/js/core/jquery.3.2.1.min.js"
+              "src/app/main/scripts/main.js",
+              "src/app/main/js/aos.js",
+              "src/app/main/js/now-ui-kit.js",
+              "src/app/main/js/core/bootstrap.min.js",
+              "src/app/main/js/core/popper.min.js",
+              "src/app/main/js/core/jquery.3.2.1.min.js"
             ]
           },
           "configurations": {
@@ -94,12 +100,24 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/app/main"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/main/css/aos.css",
+              "src/app/main/css/bootstrap.min.css",
+              "src/app/main/css/main.css",
+              "src/app/main/styles/main.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/app/main/scripts/main.js",
+              "src/app/main/js/aos.js",
+              "src/app/main/js/now-ui-kit.js",
+              "src/app/main/js/core/bootstrap.min.js",
+              "src/app/main/js/core/popper.min.js",
+              "src/app/main/js/core/jquery.3.2.1.min.js"
+            ]
           }
         }
       }
