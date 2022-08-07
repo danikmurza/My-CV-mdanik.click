@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DownloadfileService} from "../downloadfile.service";
 
 @Component({
   selector: 'app-main',
@@ -7,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
   path: string = "./images/anthony.jpg";
-  alttext: string="first image"
+  alttext: string = "first image"
 
-  constructor() { }
+  constructor(private download: DownloadfileService) {
+  }
 
   ngOnInit(): void {
   }
 
+  downloadFile(e: any): void {
+    // e.preventDefault();
+    // this.download.downloadFile()
+    //   .subscribe(res=>{
+    //     let fileName =
+    //   })
+  }
 }

@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { AccountComponent } from './account/account.component';
 import { MainComponent } from './main/main.component';
+import {DownloadfileService} from "./downloadfile.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { MainComponent } from './main/main.component';
       {path: 'registration', component: RegistrationComponent},
     ])
   ],
-  providers: [CookieService, ConfigService],
+  providers: [CookieService, ConfigService, DownloadfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
