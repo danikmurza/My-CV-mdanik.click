@@ -16,7 +16,7 @@
     <name>Portfolio</name>
     <description>Portfolio</description>
     <properties>
-        <java.version>8</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -101,14 +101,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <spring.profiles.active>prod</spring.profiles.active>
-            </properties>
-        </profile>
-    </profiles>
 
 </project>
