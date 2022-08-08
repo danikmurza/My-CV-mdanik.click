@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 //@CrossOrigin
 @RestController
-@RequestMapping()
+//@RequestMapping("app/v1")
 public class UserController {
 
 
@@ -27,7 +27,7 @@ public class UserController {
         this.j = j;
     }
 
-    @GetMapping(path = "")
+    @GetMapping(path = "/")
     public @ResponseBody Iterable<User> getAll() {
         return userService.findAll();
     }

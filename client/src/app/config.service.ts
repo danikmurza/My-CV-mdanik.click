@@ -11,8 +11,8 @@ export class ConfigService {
 
   constructor(private http: HttpClient) { }
   //
-  // configUrl = 'http://localhost:5000/';
-  configUrl = 'https://backend.mdanik.click/'
+  configUrl = 'http://localhost:5000/';
+  // configUrl = 'https://backend.mdanik.click/'
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -32,7 +32,9 @@ export class ConfigService {
    postLogin(path:string, data: User): Observable<any> {
     console.log(path)
     console.log(data)
-    const headers = new HttpHeaders({'content-type': 'application/json'})
+    const headers = new HttpHeaders()
+      .set('content-type', 'application/json')
+      .set('Access-Control-Allow-Origin','*')
     const body = JSON.stringify(data)
     return this.http.post<any>(this.configUrl + path, body, { headers })
 

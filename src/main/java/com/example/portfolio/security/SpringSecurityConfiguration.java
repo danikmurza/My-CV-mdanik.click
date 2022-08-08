@@ -15,6 +15,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .cors().disable()
+
 //                .addFilterBefore(new UsernamePasswordFilter(), UsernamePasswordFilter.class)
                 .httpBasic().disable()
                 .logout().disable();
