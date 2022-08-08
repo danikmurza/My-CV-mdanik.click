@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping()
 public class UserController {
@@ -27,7 +27,7 @@ public class UserController {
         this.j = j;
     }
 
-    @GetMapping(path = "/")
+    @GetMapping(path = "")
     public @ResponseBody Iterable<User> getAll() {
         return userService.findAll();
     }

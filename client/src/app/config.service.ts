@@ -10,8 +10,9 @@ import {Observable, Subscription} from "rxjs";
 export class ConfigService {
 
   constructor(private http: HttpClient) { }
-
-  configUrl = 'http://localhost:5000/';
+  //
+  // configUrl = 'http://localhost:5000/';
+  configUrl = 'https://backend.mdanik.click/'
 
   httpOptions = {
     headers: new HttpHeaders({
