@@ -36,7 +36,7 @@ public class ContactController {
             }
             this.contactService.save(dto);
             this.emailService
-                    .sendContact("portfolio@mdanik.click", "daniyarmurza@gmail.com", dto.getSubject(), dto.getEmail() + " = "+dto.getText());
+                    .sendContact("portfolio@mdanik.click", "murzadaniyar@gmail.com", dto.getSubject(), dto.getEmail() + " = "+dto.getText());
 
             return new ResponseEntity<>(j.m("Thank you i will contact soon possibly"), HttpStatus.ACCEPTED);
         }catch (Exception e){
