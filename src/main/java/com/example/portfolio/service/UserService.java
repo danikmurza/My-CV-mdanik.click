@@ -70,13 +70,12 @@ public class UserService {
     }
 
 
-    public static boolean email(String e){
+    public boolean email(String e){
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
         return e.matches(emailRegex);
-
     }
 
     public boolean password(String passwd) {

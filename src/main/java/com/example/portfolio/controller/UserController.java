@@ -36,10 +36,10 @@ public class UserController {
     public @ResponseBody ResponseEntity<Object> registration(@RequestBody User body) throws Exception {
         try {
             User users = userService.userFindByEmail(body.getEmail());
-            if (users != null) {
+            if (users != null && !userService.email(body.getEmail())) {
                 return new ResponseEntity<>(j.m("User already have"), HttpStatus.BAD_REQUEST);
             }
-            if (body.getPassword().length() < 6) {
+            if (!userService.password(body.getPassword())) {
                 return new ResponseEntity<>(j.m("Password"), HttpStatus.BAD_REQUEST);
             }else {
                 User user = this.userService.registerNewUser(body);
