@@ -25,7 +25,12 @@ import java.util.Map;
 
 @Service
 public class EmailService implements EmailRepository {
-    private static final String NOREPLY_ADDRESS = "noreply@baeldung.com";
+
+    @Value("${email}")
+    private String email;
+
+    @Value("${gmail}")
+    private String gmail;
 
     @Autowired
     private JavaMailSender emailSender;
@@ -46,21 +51,7 @@ public class EmailService implements EmailRepository {
     public void sendSimpleMessage(String to, String subject, String text) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(NOREPLY_ADDRESS);
-            message.setTo(to);
-            message.setSubject(subject);
-            message.setText(text);
-
-            emailSender.send(message);
-        } catch (MailException exception) {
-            exception.printStackTrace();
-        }
-    }
-
-    public void sendContact(String from, String to, String subject, String text) {
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(from);
+            message.setFrom(email);
             message.setTo(to);
             message.setSubject(subject);
             message.setText(text);
@@ -89,7 +80,7 @@ public class EmailService implements EmailRepository {
             // pass 'true' to the constructor to create a multipart message
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-            helper.setFrom(NOREPLY_ADDRESS);
+            helper.setFrom(email);
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(text);
@@ -132,7 +123,7 @@ public class EmailService implements EmailRepository {
 
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-        helper.setFrom(NOREPLY_ADDRESS);
+        helper.setFrom(email);
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(htmlBody, true);

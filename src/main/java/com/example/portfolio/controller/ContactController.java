@@ -7,6 +7,7 @@ import com.example.portfolio.service.ContactService;
 import com.example.portfolio.service.EmailService;
 import com.example.portfolio.service.Json;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/contact")
 public class ContactController {
+
+
+    @Value("${gmail}")
+    private String gmail;
 
     private final ContactService contactService;
     private final Json j;
@@ -36,7 +41,7 @@ public class ContactController {
             }
             this.contactService.save(dto);
             this.emailService
-                    .sendContact("portfolio@mdanik.click", "murzadaniyar@gmail.com", dto.getSubject(), dto.getEmail() + " = "+dto.getText());
+                    .sendSimpleMessage(this.gmail, dto.getSubject(), dto.getEmail() + " = "+dto.getText());
 
             return new ResponseEntity<>(j.m("Thank you i will contact soon possibly"), HttpStatus.ACCEPTED);
         }catch (Exception e){
