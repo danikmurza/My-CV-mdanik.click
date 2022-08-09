@@ -17,6 +17,9 @@ public class ContactService {
 
 
     public void save(Contact data) {
+        System.out.println(data.getName());
         this.contactRepository.save(data);
     }
+
+
 }

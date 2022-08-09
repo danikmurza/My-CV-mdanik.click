@@ -1,13 +1,8 @@
 package com.example.portfolio.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Value;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.validation.annotation.Validated;
-
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
@@ -15,6 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class User {
