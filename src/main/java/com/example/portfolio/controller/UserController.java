@@ -38,7 +38,10 @@ public class UserController {
             User users = userService.userFindByEmail(body.getEmail());
             if (users != null) {
                 return new ResponseEntity<>(j.m("User already have"), HttpStatus.BAD_REQUEST);
-            } else {
+            }
+            if (body.getPassword().length() < 6) {
+                return new ResponseEntity<>(j.m("Password"), HttpStatus.BAD_REQUEST);
+            }else {
                 User user = this.userService.registerNewUser(body);
                 return new ResponseEntity<>(j.token(jwtUtils.generateJwtToken(user.getEmail(), user.getId())), HttpStatus.CREATED);
             }

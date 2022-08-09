@@ -69,4 +69,18 @@ public class UserService {
         return encoder.matches(password, enPasswd);
     }
 
+
+    public static boolean email(String e){
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+        return e.matches(emailRegex);
+
+    }
+
+    public boolean password(String passwd) {
+        String p = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{6,20}$";
+        return passwd.matches(p);
+    }
 }

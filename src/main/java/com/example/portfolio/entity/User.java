@@ -4,7 +4,9 @@ package com.example.portfolio.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Value;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -30,6 +32,7 @@ public class User {
 
     @Column(name = "email")
     private String email;
+
 
     @Column(name = "password")
     private String password;
