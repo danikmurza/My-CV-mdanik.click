@@ -3,6 +3,7 @@ package com.example.portfolio.service;
 import com.example.portfolio.entity.User;
 import com.example.portfolio.repository.RoleRepository;
 import com.example.portfolio.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,8 @@ public class UserService {
 
     private final RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository,  RoleRepository roleRepository) {
+    @Autowired
+    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
 
         this.roleRepository = roleRepository;
@@ -59,19 +61,19 @@ public class UserService {
 //        System.out.print(Arrays.asList(adminRole));
         user.setPassword(passwd);
         user.setEnabled(true);
-        user.setUrlAvatar(dto.getUrlAvatar() == null ? "https://resume-dnc.s3.amazonaws.com/download.png" : dto.getUrlAvatar() );
+        user.setUrlAvatar(dto.getUrlAvatar() == null ? "https://resume-dnc.s3.amazonaws.com/download.png" : dto.getUrlAvatar());
 //        user.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
         User r = userRepository.save(user);
         return r;
     }
 
-    public boolean checkPassword(String password, String enPasswd){
+    public boolean checkPassword(String password, String enPasswd) {
         return encoder.matches(password, enPasswd);
     }
 
 
-    public boolean email(String e){
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+    public boolean email(String e) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";

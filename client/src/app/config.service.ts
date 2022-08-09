@@ -32,11 +32,8 @@ export class ConfigService {
    postLogin(path:string, data: User): Observable<any> {
     console.log(path)
     console.log(data)
-    const headers = new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin','*')
     const body = JSON.stringify(data)
-    return this.http.post<any>(this.configUrl + path, body, { headers })
+    return this.http.post<any>(this.configUrl + path, body, this.httpOptions)
 
   }
 
