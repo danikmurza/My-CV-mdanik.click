@@ -79,7 +79,7 @@ public class UserService {
     }
 
     public boolean password(String passwd) {
-        String p = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{6,20}$";
+        String p = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&.()–[{}]:;',?/*~$^+=<>]).{6,20}$";
         return passwd.matches(p);
     }
 }
