@@ -10,14 +10,12 @@ public class ContactService {
 
     private final ContactRepository contactRepository;
 
-    @Autowired
     public ContactService(ContactRepository contactRepository) {
         this.contactRepository = contactRepository;
     }
 
 
     public void save(Contact data) {
-        System.out.println(data.getName());
         this.contactRepository.save(data);
     }
 

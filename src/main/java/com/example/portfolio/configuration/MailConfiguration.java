@@ -15,11 +15,11 @@ public class MailConfiguration {
 
     @Value("${spring.mail.host}")
     private String host;
-    @Value("${spring.mail.port}")
+    @Value("${spring.mail.properties.mail.smtp.port}")
     private int port;
     @Value("${spring.mail.username}")
     private String username;
-    @Value("${spring:mail.password}")
+    @Value("${spring.mail.password}")
     private String password;
 
     @Bean
@@ -31,13 +31,12 @@ public class MailConfiguration {
         mailSender.setUsername(username);
         mailSender.setPassword(password);
 
-        Properties javaMailProperties = new Properties();
-        javaMailProperties.put("mail.smtp.starttls.enable", "true");
-        javaMailProperties.put("mail.smtp.auth", "true");
-        javaMailProperties.put("mail.transport.protocol", "smtp");
-        javaMailProperties.put("mail.debug", "true");
+        Properties props = mailSender.getJavaMailProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.debug", "true");
 
-        mailSender.setJavaMailProperties(javaMailProperties);
         return mailSender;
     }
 

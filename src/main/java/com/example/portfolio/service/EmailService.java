@@ -11,6 +11,7 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.thymeleaf.context.Context;
@@ -22,13 +23,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+@Service
 public class EmailService implements EmailRepository {
     private static final String NOREPLY_ADDRESS = "noreply@baeldung.com";
 
     @Autowired
     private JavaMailSender emailSender;
 
-    @Autowired
+
     private SimpleMailMessage template;
 
     @Autowired
@@ -40,10 +42,25 @@ public class EmailService implements EmailRepository {
     @Value("classpath:/mail-logo.png")
     private Resource resourceFile;
 
+
     public void sendSimpleMessage(String to, String subject, String text) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(NOREPLY_ADDRESS);
+            message.setTo(to);
+            message.setSubject(subject);
+            message.setText(text);
+
+            emailSender.send(message);
+        } catch (MailException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    public void sendContact(String from, String to, String subject, String text) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom(from);
             message.setTo(to);
             message.setSubject(subject);
             message.setText(text);

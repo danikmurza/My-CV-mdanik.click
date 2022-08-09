@@ -4,6 +4,7 @@ package com.example.portfolio.controller;
 import com.example.portfolio.configuration.MailConfiguration;
 import com.example.portfolio.entity.Contact;
 import com.example.portfolio.service.ContactService;
+import com.example.portfolio.service.EmailService;
 import com.example.portfolio.service.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,13 +18,14 @@ public class ContactController {
     private final ContactService contactService;
     private final Json j;
 
-    private final MailConfiguration mailService;
+    private final EmailService emailService;
 
     @Autowired
-    public ContactController(ContactService contactService, Json j, MailConfiguration mailService) {
+    public ContactController(ContactService contactService, Json j,  EmailService emailService) {
         this.contactService = contactService;
         this.j = j;
-        this.mailService = mailService;
+        this.emailService = emailService;
+
     }
 
     @PostMapping(path = "/add")
@@ -33,6 +35,8 @@ public class ContactController {
                 return new ResponseEntity<>(j.m("Please fill email"), HttpStatus.BAD_REQUEST);
             }
             this.contactService.save(dto);
+            this.emailService
+                    .sendContact("portfolio.mdanik.click", "daniyarmurza@gmail.com", dto.getSubject(), dto.getEmail() + " = "+dto.getText());
 
             return new ResponseEntity<>(j.m("Thank you i will contact soon possibly"), HttpStatus.ACCEPTED);
         }catch (Exception e){

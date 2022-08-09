@@ -2,6 +2,7 @@ package com.example.portfolio.controller;
 
 import com.example.portfolio.entity.User;
 import com.example.portfolio.security.JwtUtils;
+import com.example.portfolio.service.EmailService;
 import com.example.portfolio.service.Json;
 import com.example.portfolio.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,15 @@ public class UserController {
 
     private final UserService userService;
     private final JwtUtils jwtUtils;
+    private final EmailService emailService;
 
     private final Json j;
 
     @Autowired
-    public UserController(UserService userService, JwtUtils jwtUtils, Json j) {
+    public UserController(UserService userService, JwtUtils jwtUtils, EmailService emailService, Json j) {
         this.userService = userService;
         this.jwtUtils = jwtUtils;
+        this.emailService = emailService;
         this.j = j;
     }
 
