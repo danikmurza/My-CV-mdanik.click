@@ -59,7 +59,7 @@ public class UserService {
 //        System.out.print(Arrays.asList(adminRole));
         user.setPassword(passwd);
         user.setEnabled(true);
-        user.setUrlAvatar(dto.getUrlAvatar());
+        user.setUrlAvatar(dto.getUrlAvatar() == null ? "https://resume-dnc.s3.amazonaws.com/download.png" : dto.getUrlAvatar() );
 //        user.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
         User r = userRepository.save(user);
         return r;

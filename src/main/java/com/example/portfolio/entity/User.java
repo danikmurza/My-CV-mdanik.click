@@ -38,13 +38,13 @@ public class User {
     private String password;
 
     @Column(name = "enabled")
-    private boolean enabled;
+    private boolean enabled = true;
 
     @CreatedDate
-    @Column(name = "last_visit", nullable = true)
-    private Date created;
+    @Column(name = "last_visit")
+    private Date created = new Date();
 
-    @Column(name = "url_avatar", nullable = true)
+    @Column(name = "url_avatar")
     private String urlAvatar;
 
 
