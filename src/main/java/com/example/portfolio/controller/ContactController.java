@@ -44,7 +44,7 @@ public class ContactController {
 
             return new ResponseEntity<>(j.m("Thank you i will contact soon possibly"), HttpStatus.ACCEPTED);
         }catch (Exception e){
-            return new ResponseEntity<>(j.m("Somthing wrong"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(j.m("Something wrong"), HttpStatus.BAD_REQUEST);
         }
 
     }
