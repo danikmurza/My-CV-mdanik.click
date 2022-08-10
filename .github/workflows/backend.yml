@@ -8,8 +8,10 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
+on:
+jobs:
 artifacts:
   files:
-    - appspec.yml
-    - target/*.war
+    - backend.yml
+    - target/*.jar
   discard-paths: yes
