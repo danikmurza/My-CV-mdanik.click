@@ -29,7 +29,7 @@ name: Deploy AWS
 on:
   push:
     branches:
-      - main
+      - deploy
 
      # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
