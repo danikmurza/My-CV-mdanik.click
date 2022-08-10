@@ -1,5 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {DownloadfileService} from "../downloadfile.service";
+import {HttpClient} from "@angular/common/http";
+import {ConfigService} from "../config.service";
+import {FormControl, FormGroup} from "@angular/forms";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 
 @Component({
   selector: 'app-main',
@@ -7,20 +15,48 @@ import {DownloadfileService} from "../downloadfile.service";
   styleUrls: ['css/aos.css', 'css/bootstrap.min.css', 'css/main.css',]
 })
 export class MainComponent implements OnInit {
+  constructor(private download: DownloadfileService, private http: ConfigService,
+              public dialog:MatDialog
+              ) {}
   path: string = "./images/anthony.jpg";
   alttext: string = "first image"
+  error: any;
+  message: string | undefined
+  form = new FormGroup({
+    email: new FormControl(''),
+    message: new FormControl(''),
+    subject: new FormControl(''),
+    name: new FormControl('')
+  })
 
-  constructor(private download: DownloadfileService) {
-  }
+
+
 
   ngOnInit(): void {
   }
 
-  downloadFile(e: any): void {
-    // e.preventDefault();
-    // this.download.downloadFile()
-    //   .subscribe(res=>{
-    //     let fileName =
-    //   })
+  openDialog() {
+    this.dialog.open(DialogDataExampleDialog, {
+      data: {
+        animal: 'panda',
+      },
+    });
   }
+
+  contactMe() {
+    console.log(this.form.value)
+    this.http.postContact(this.form.value)
+      .subscribe(res => this.message =res, error => this.error = error)
+    this.form.reset({email: '', name: '', subject: '', message: ''})
+    this.openDialog();
+
+  }
+}
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: 'dialog-data-example-dialog.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

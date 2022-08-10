@@ -24,11 +24,11 @@
               "src/app/main"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "src/app/main/css/aos.css",
               "src/app/main/css/bootstrap.min.css",
               "src/app/main/css/main.css"
-
             ],
             "scripts": [
               "src/app/main/scripts/main.js",
@@ -103,11 +103,11 @@
               "src/app/main"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "src/app/main/css/aos.css",
               "src/app/main/css/bootstrap.min.css",
               "src/app/main/css/main.css"
-
             ],
             "scripts": [
               "src/app/main/scripts/main.js",

@@ -8,6 +8,14 @@ export interface User {
   url_avatar?: string;
 }
 
+
+export interface Contact {
+  name: string;
+  subject: string;
+  email: string;
+  text: string;
+}
+
 export interface Address {
   id: number;
   addressLine1: string;

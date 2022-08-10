@@ -10,12 +10,15 @@ import {CookieService} from "./cookie.service";
 import { RegistrationComponent } from './registration/registration.component';
 import {ConfigService} from "./config.service";
 import {HttpClientModule} from "@angular/common/http";
-// import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { AccountComponent } from './account/account.component';
-import { MainComponent } from './main/main.component';
+import {DialogDataExampleDialog, MainComponent} from './main/main.component';
 import {DownloadfileService} from "./downloadfile.service";
+import {ReactiveFormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import {DownloadfileService} from "./downloadfile.service";
     FooterComponent,
     NavComponent,
     AccountComponent,
-    MainComponent
+    MainComponent,
+    DialogDataExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -37,9 +41,13 @@ import {DownloadfileService} from "./downloadfile.service";
       {path: 'login', component: LoginComponent},
       // {path: 'get-cookie', component: GetCookieExampleComponent}
       {path: 'registration', component: RegistrationComponent},
-    ])
+    ]),
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [CookieService, ConfigService, DownloadfileService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, MainComponent, DialogDataExampleDialog]
 })
 export class AppModule { }
