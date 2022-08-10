@@ -10,9 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
-//@RequestMapping("app/v1")
 public class UserController {
 
 
@@ -30,12 +29,12 @@ public class UserController {
         this.j = j;
     }
 
-    @GetMapping(path = "/")
+    @GetMapping(path = "api/v1/auth")
     public @ResponseBody Iterable<User> getAll() {
         return userService.findAll();
     }
 
-    @PostMapping(path = "/registration")
+    @PostMapping(path = "api/v1/auth/registration")
     public @ResponseBody ResponseEntity<Object> registration(@RequestBody User body) throws Exception {
         try {
             User users = userService.userFindByEmail(body.getEmail());
@@ -53,12 +52,12 @@ public class UserController {
         }
     }
 
-    @PostMapping(path = "/user")
+    @PostMapping(path = "api/v1/auth/user")
     public @ResponseBody Object user(@RequestBody User body) {
         return userService.findById(body.getId());
     }
 
-    @PostMapping(path = "/login")
+    @PostMapping(path = "api/v1/auth/login")
     public @ResponseBody ResponseEntity<Object> login(@RequestBody User body) throws Exception {
         try {
             User user = userService.userFindByEmail(body.getEmail());
@@ -75,7 +74,7 @@ public class UserController {
         }
     }
 
-    @PostMapping(path = "/update")
+    @PostMapping(path = "api/v1/auth/update")
     public @ResponseBody Object update(@RequestBody User body) {
         return userService.updateUser(body);
     }

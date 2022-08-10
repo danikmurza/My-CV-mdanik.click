@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Contact, User} from "./model/models";
 import {Observable, Subscription} from "rxjs";
-import {FormControl, ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
+import {FormControl, FormGroup, ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
+import {environment} from "../environments/environment";
 
 
 @Injectable({
@@ -13,9 +14,8 @@ export class ConfigService {
   constructor(private http: HttpClient) {
   }
 
-  //
-  url = 'http://localhost:5000/';
-  // configUrl = 'https://backend.mdanik.click/'
+
+  url = environment.apiUrl;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -36,11 +36,11 @@ export class ConfigService {
     console.log(path)
     console.log(data)
     const body = JSON.stringify(data)
-    return this.http.post<any>(this.url + path, body, this.httpOptions)
+    return this.http.post<any>(this.url+ "auth/" + path, body, this.httpOptions)
 
   }
 
-  postContact(data: ɵTypedOrUntyped<{ subject: FormControl<string | null>; name: FormControl<string | null>; message: FormControl<string | null>; email: FormControl<string | null> }, ɵFormGroupValue<{ subject: FormControl<string | null>; name: FormControl<string | null>; message: FormControl<string | null>; email: FormControl<string | null> }>, any>): Observable<any> {
+  postContact(data: any): Observable<any> {
     const body = JSON.stringify(data)
     return this.http.post(this.url + "contact/add", body, this.httpOptions)
   }

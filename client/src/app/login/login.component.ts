@@ -21,10 +21,10 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.Cookie.setCookie({name: "access_token", value: "sadfdadasdas"});
-    console.log(this.Cookie.getCookie("access_token"))
-    let i = this.http.getLogin('login', {email: 'mdanik@bk.ru', password: 'Danik1234'})
-console.log(i)
+//     this.Cookie.setCookie({name: "access_token", value: "sadfdadasdas"});
+//     console.log(this.Cookie.getCookie("access_token"))
+//     let i = this.http.getLogin('login', {email: 'mdanik@bk.ru', password: 'Danik1234'})
+// console.log(i)
   }
 
 
@@ -45,8 +45,8 @@ console.log(i)
       .postLogin('login', {email: this.email, password: this.password})
       .subscribe(data => this.message = data, error1 => this.error = error1.error)
 
-    console.log(this.message.token)
-     console.log(this.error)
+    // console.log(this.message.token)
+    //  console.log(this.error)
 
   }
 

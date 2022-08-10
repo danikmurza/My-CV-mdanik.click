@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RestController
-@RequestMapping("/contact")
 public class ContactController {
 
 
@@ -33,7 +32,7 @@ public class ContactController {
 
     }
 
-    @PostMapping(path = "/add")
+    @PostMapping(path = "api/v1/contact/add")
     public @ResponseBody ResponseEntity<Object> post(@RequestBody Contact dto) throws Exception {
         try {
             if(dto.getEmail() == null){

@@ -23,10 +23,10 @@ export class MainComponent implements OnInit {
   error: any;
   message: string | undefined
   form = new FormGroup({
-    email: new FormControl(''),
-    message: new FormControl(''),
-    subject: new FormControl(''),
-    name: new FormControl('')
+    email: new FormControl(),
+    message: new FormControl(),
+    subject: new FormControl(),
+    name: new FormControl()
   })
 
 
@@ -44,7 +44,6 @@ export class MainComponent implements OnInit {
   }
 
   contactMe() {
-    console.log(this.form.value)
     this.http.postContact(this.form.value)
       .subscribe(res => this.message =res, error => this.error = error)
     this.form.reset({email: '', name: '', subject: '', message: ''})
