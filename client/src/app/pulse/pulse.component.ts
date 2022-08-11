@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PulseComponent implements OnInit {
 
-  public logo ="./icons/logo.png";
+
 
   constructor() { }
 
