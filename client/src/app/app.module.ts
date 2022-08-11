@@ -19,6 +19,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
+import { UberComponent } from './uber/uber.component';
+import { PulseComponent } from './pulse/pulse.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     NavComponent,
     AccountComponent,
     MainComponent,
-    DialogDataExampleDialog
+    DialogDataExampleDialog,
+    UberComponent,
+    PulseComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import {MatDialogModule} from "@angular/material/dialog";
       {path: 'login', component: LoginComponent},
       // {path: 'get-cookie', component: GetCookieExampleComponent}
       {path: 'registration', component: RegistrationComponent},
+      {path: 'uber', component: UberComponent},
+      {path: 'pulse', component: PulseComponent},
     ]),
     ReactiveFormsModule,
     BrowserAnimationsModule,
